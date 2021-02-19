@@ -1229,6 +1229,7 @@ class AudioServiceBackground {
   /// any requests by the client to play, pause and otherwise control audio
   /// playback.
   static Future<void> run(BackgroundAudioTask taskBuilder()) async {
+     Future.delayed(Duration(milliseconds: 1000)).whenComplete(() async{
     _running = true;
     _taskCompleter = Completer();
     _inProgressCompleter = Completer();
@@ -1293,6 +1294,7 @@ class AudioServiceBackground {
         AudioService._startedNonIsolate();
       }
     }
+       });
   }
 
   /// Handle methods other than onStop.
